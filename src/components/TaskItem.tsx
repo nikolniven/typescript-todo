@@ -13,6 +13,10 @@ const TaskItem = (props: Props) => {
   const text = props.task.text;
   const id = props.task.id;
 
+  const handleToggle = () => {
+    props.toggleTask(id);
+  };
+
   const handleDelete = () => {
     setIsExiting(true);
     // Wait for animation to complete before toggling
@@ -22,7 +26,7 @@ const TaskItem = (props: Props) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="todo">
       <div
         className={`
         flex items-center space-x-2 p-2 bg-gray-200 rounded
@@ -30,7 +34,14 @@ const TaskItem = (props: Props) => {
         ${isExiting ? 'translate-y-32 rotate-6 opacity-0' : 'opacity-100'}
       `}
       >
-        <input type="checkbox" checked={completed} />
+        <button
+          onClick={handleToggle}
+          className={`complete-btn ${
+            completed ? 'line-through opacity-50' : ''
+          }`}
+        >
+          <i className="fas fa-check"></i>
+        </button>
         <span>
           <button
             onClick={handleDelete}

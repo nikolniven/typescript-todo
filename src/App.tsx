@@ -38,7 +38,7 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="min-h-screen max-w-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#d492ee] to-[#d93fe7]">
       <header className="header">
         <h1>Nik's To do List</h1>
       </header>

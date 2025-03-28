@@ -9,15 +9,17 @@ type Props = {
 
 const TaskList = (props: Props) => {
   return (
-    <div className="task-list">
-      {props.tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          toggleTask={props.toggleTask}
-          deleteTask={props.deleteTask}
-        />
-      ))}
+    <div className="todo-container">
+      <ul className="todo-list min-w-[30%] list-none">
+        {props.tasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            toggleTask={props.toggleTask}
+            deleteTask={props.deleteTask}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
