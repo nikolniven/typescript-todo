@@ -3,6 +3,7 @@ import { useState } from 'react';
 type Props = {
   addTask: (text: string) => void;
   setFilter: (text: string) => void;
+  filter: string;
 };
 
 const TaskForm = (props: Props) => {
@@ -18,6 +19,17 @@ const TaskForm = (props: Props) => {
   return (
     <div className="min-h-[20vh] flex justify-center items-center">
       <form onSubmit={handleSubmit} className="flex items-center">
+        <div className="select">
+          <select
+            value={props.filter}
+            onChange={(e) => props.setFilter(e.target.value)}
+            className="p-4 text-[rgba(114,0,106,0.712)] cursor-pointer border-none w-40"
+          >
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
         <input
           type="text"
           value={text}

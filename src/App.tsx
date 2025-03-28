@@ -38,12 +38,13 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen max-w-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#d492ee] to-[#d93fe7]">
+    <div className="w-full min-h-screen max-w-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#d492ee] to-[#d93fe7]">
       <header className="header">
         <h1>Nik's To do List</h1>
+        <h2>what needs to be done, needs to be done!</h2>
       </header>
-      <TaskForm addTask={addTask} />
-      <div className="select-container">
+      <TaskForm addTask={addTask} filter={filter} setFilter={setFilter} />
+      {/* <div className="select-container">
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
@@ -53,7 +54,7 @@ const App = () => {
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
         </select>
-      </div>
+      </div> */}
       <TaskList
         tasks={filteredTasks}
         toggleTask={toggleTask}
