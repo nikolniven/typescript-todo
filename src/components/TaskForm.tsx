@@ -15,42 +15,41 @@ const TaskForm = (props: Props) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className=" flex 
-      justify-between 
-      items-center 
-      m-2 
-      bg-white 
-      text-black 
-      text-2xl 
-      transition-all 
-      duration-300 
-      ease-in-out
-      space-x-2"
-    >
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="p-2 text-4xl border-none bg-white"
-        placeholder="New task..."
-      />
-      <button
-        className="
-    text-custom-purple 
-    bg-white 
-    cursor-pointer 
-    transition-all 
-    duration-300 
-    ease-in-out 
-    hover:bg-custom-purple 
-    hover:text-white 
-    font-awesome font-[900]"
-      >
-        <i className="fas fa-plus-square text-2xl font-awesome font-[900]"></i>
-      </button>
-    </form>
+    <div className="min-h-[20vh] flex justify-center items-center">
+      <form onSubmit={handleSubmit} className="flex items-center">
+        <div className="select mr-4">
+          <select className="w-40 p-4 text-[rgba(114,0,106,0.712)] cursor-pointer border-none">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          className="p-2 text-2xl border-none bg-white"
+          placeholder="New task..."
+        />
+
+        <button
+          type="submit"
+          className="text-custom-purple 
+            bg-white 
+            p-2 
+            text-2xl
+            border-none
+            cursor-pointer 
+            transition-all 
+            duration-300 
+            hover:bg-custom-purple 
+            hover:text-white"
+        >
+          <i className="fas fa-plus-square"></i>
+        </button>
+      </form>
+    </div>
   );
 };
 
