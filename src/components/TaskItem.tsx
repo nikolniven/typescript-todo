@@ -22,15 +22,23 @@ const TaskItem = (props: Props) => {
   };
 
   return (
-    <div
-      className={`
+    <div className="flex justify-center items-center">
+      <div
+        className={`
         flex items-center space-x-2 p-2 bg-gray-200 rounded
         transform transition-all duration-500 ease-in-out
-        ${isExiting ? 'opacity-0 translate-y-2' : 'opacity-100'}
+        ${isExiting ? 'translate-y-32 rotate-6 opacity-0' : 'opacity-100'}
       `}
-    >
-      <input type="checkbox" checked={completed} onChange={handleToggle} />
-      <span className={completed ? 'line-through' : ''}>{text}</span>
+      >
+        <input type="checkbox" checked={completed} onChange={handleToggle} />
+        <span
+          className={`px-2 whitespace-normal break-words w-[400px]${
+            completed ? 'line-through' : ''
+          }`}
+        >
+          {text}
+        </span>
+      </div>
     </div>
   );
 };
