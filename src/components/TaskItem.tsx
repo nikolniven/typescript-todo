@@ -22,43 +22,33 @@ const TaskItem = (props: Props) => {
     // Wait for animation to complete before toggling
     setTimeout(() => {
       props.deleteTask(id);
-    }, 500); // Match this with transition duration
+    }, 600); // Match this with transition duration
   };
 
   return (
-    <div className="todo">
-      <div
-        className={`
+    <div
+      className={`
         flex items-center space-x-2 p-2 bg-gray-200 rounded
-        transform transition-all duration-500 ease-in-out break-words w-[400px]
-        ${isExiting ? 'translate-y-32 rotate-6 opacity-0' : 'opacity-100'}
+        transform transition-all duration-500 ease-in-out
+        mb-2 w-[400px] overflow-hidden
+        ${
+          isExiting
+            ? 'opacity-0 translate-y-32 rotate-6 h-0 m-0 p-0'
+            : 'opacity-100 h-auto'
+        }
       `}
+    >
+      <button onClick={handleToggle} className="complete-btn">
+        <i className="fas fa-check"></i>
+      </button>
+      <button
+        onClick={handleDelete}
+        className="bg-[rgba(114,0,106,0.712)] text-white border-none p-4 cursor-pointer text-base"
       >
-        <button
-          onClick={handleToggle}
-          className={`complete-btn ${
-            completed ? 'line-through opacity-50' : ''
-          }`}
-        >
-          <i className="fas fa-check"></i>
-        </button>
-        <span>
-          <button
-            onClick={handleDelete}
-            className="bg-[rgba(114,0,106,0.712)] 
-              text-white 
-              border-none 
-              p-4 
-              cursor-pointer 
-              text-base"
-          >
-            <i className="fas fa-trash px-2 whitespace-normal"></i>
-          </button>
-          {text}
-        </span>
-      </div>
+        <i className="fas fa-trash"></i>
+      </button>
+      <span className={completed ? 'line-through opacity-50' : ''}>{text}</span>
     </div>
   );
 };
-
 export default TaskItem;

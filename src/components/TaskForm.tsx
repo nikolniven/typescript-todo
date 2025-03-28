@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 type Props = {
   addTask: (text: string) => void;
+  setFilter: (text: string) => void;
 };
 
 const TaskForm = (props: Props) => {
